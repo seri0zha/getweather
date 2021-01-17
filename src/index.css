@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: Comfortaa;
+  src: url('./Fonts/Comfortaa-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
