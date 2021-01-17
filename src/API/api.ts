@@ -1,6 +1,6 @@
 import axios from "axios";
+import {appid} from "./openWeatherKey";
 
-const appid = '0f51020b781960d8f6c3c460f6dce207';
 const units = 'metric';
 const axiosInstance = axios.create({
   baseURL: 'http://api.openweathermap.org/data/2.5/',

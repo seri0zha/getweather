@@ -10,6 +10,7 @@
 
 # production
 /build
+/src/API/openWeatherKey.ts
 
 # misc
 .DS_Store
