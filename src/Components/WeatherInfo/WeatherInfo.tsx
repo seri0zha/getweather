@@ -8,6 +8,7 @@ const CelsiusDegree = styled.div`
 `;
 
 const Temperature = styled.div`
+  color: black;
   font-size: 72px;
   display: inline-block;
 `;
@@ -16,6 +17,12 @@ const StyledDiv = styled.div`
   position: relative;
 `;
 
+const WeatherInfoWrapper = styled.div`
+  color: #555;
+`;
+
+
+//function which ads '+' symbol to the temperature value if it's greater than zero
 const convertTemperature = (temperature: number): string => {
   return Math.floor(temperature) > 0
     ? '+' + Math.floor(temperature) : '' + Math.floor(temperature);
@@ -27,8 +34,8 @@ const WeatherInfo = (props: any) => {
   const date: Date = new Date(props.forecastData.current.dt * 1000);
   const timeString: string = (date).toTimeString();
   return (
-    <div>
-      <div>{props.cityName}, {timeString.split(' ')[0]}</div>
+    <WeatherInfoWrapper>
+      <div>{props.cityName}, {timeString.split(' ')[0].slice(0, 5)}</div>
       <StyledDiv>
         <Temperature>{currentTemp}</Temperature>
         <CelsiusDegree>&deg;C</CelsiusDegree>
@@ -36,7 +43,7 @@ const WeatherInfo = (props: any) => {
       <div>
         Feels like {feelsLike}&deg;C
       </div>
-    </div>
+    </WeatherInfoWrapper>
   )
 }
 

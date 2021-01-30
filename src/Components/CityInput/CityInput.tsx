@@ -18,7 +18,8 @@ const CityInput = (props: any) => {
                    onChange={(e) => props.setCityInputValue(e.target.value)}
                    placeholder={'Search...'}
                    onFocus={e => e.target.placeholder = ''}
-                   onBlur={(e) => e.target.placeholder = 'Search...'}/>
+                   onBlur={(e) => e.target.placeholder = 'Search...'}
+                   ref={props.inputEl}/>
     </form>
   )
 }
