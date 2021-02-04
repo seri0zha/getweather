@@ -13,11 +13,8 @@ const WeatherWrapper = styled.div<WeatherInfoProps>`
 
 
 const WeatherImage = (props: WeatherInfoProps) => {
-  debugger;
   return (
-    <WeatherWrapper imageURL={props.imageURL}>
-
-    </WeatherWrapper>
+    <WeatherWrapper imageURL={props.imageURL}/>
   )
 };
 

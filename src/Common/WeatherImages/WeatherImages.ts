@@ -1,4 +1,3 @@
-
 const GetWeatherImageId = (id: number): string => {
   if (id >= 200 && id <300) {
     return '11';

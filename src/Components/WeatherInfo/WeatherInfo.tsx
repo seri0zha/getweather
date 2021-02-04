@@ -36,7 +36,7 @@ const convertTemperature = (temperature: number): string => {
     ? '+' + Math.floor(temperature) : '' + Math.floor(temperature);
 };
 
-const   WeatherInfo = (props: any) => {
+const WeatherInfo = (props: any) => {
   const currentTemp: string = convertTemperature(props.forecastData.current.temp);
   const feelsLike: string = convertTemperature(props.forecastData.current['feels_like']);
   const date: Date = new Date(props.forecastData.current.dt * 1000);
@@ -44,7 +44,6 @@ const   WeatherInfo = (props: any) => {
   const weatherId: string = GetWeatherImageId(props.forecastData.current.weather[0].id);
   const weatherDescription: string = props.forecastData.current.weather[0].main;
   const imageURL: string = `http://openweathermap.org/img/wn/${weatherId}d@4x.png`
-  debugger;
   return (
     <WeatherInfoWrapper>
       <div>{props.cityName}, {timeString.split(' ')[0].slice(0, 5)}</div>
