@@ -2,6 +2,8 @@ import React from 'react';
 import styled from "styled-components";
 import GetWeatherImageId from "../../Common/WeatherImages/WeatherImages";
 import WeatherImage from "../WeatherImage/WeatherImage";
+import {connect} from "react-redux";
+import Loader from "../../Common/Loader/Loader";
 
 const InlineDiv = styled.div`
   display: inline-block;
@@ -29,6 +31,11 @@ const WeatherInfoWrapper = styled.div`
   color: #555;
 `;
 
+const mapStateToProps = (state: any) => ({
+  forecastData: state.forecastData,
+  cityName: state.cityName,
+  requestIsFetching: state.requestIsFetching,
+})
 
 //function which ads '+' symbol to the temperature value if it's greater than zero
 const convertTemperature = (temperature: number): string => {
@@ -36,7 +43,15 @@ const convertTemperature = (temperature: number): string => {
     ? '+' + Math.floor(temperature) : '' + Math.floor(temperature);
 };
 
-const   WeatherInfo = (props: any) => {
+const WeatherInfo = (props: any) => {
+  if (Object.keys(props.forecastData).length === 0) {
+    if (props.requestIsFetching) {
+      return <Loader/>;
+    } else {
+      return <></>;
+    }
+  }
+
   const currentTemp: string = convertTemperature(props.forecastData.current.temp);
   const feelsLike: string = convertTemperature(props.forecastData.current['feels_like']);
   const date: Date = new Date(props.forecastData.current.dt * 1000);
@@ -45,6 +60,7 @@ const   WeatherInfo = (props: any) => {
   const weatherDescription: string = props.forecastData.current.weather[0].main;
   const imageURL: string = `http://openweathermap.org/img/wn/${weatherId}d@4x.png`
   debugger;
+
   return (
     <WeatherInfoWrapper>
       <div>{props.cityName}, {timeString.split(' ')[0].slice(0, 5)}</div>
@@ -62,4 +78,4 @@ const   WeatherInfo = (props: any) => {
   )
 }
 
-export default WeatherInfo;
+export default connect(mapStateToProps, null)(WeatherInfo);
