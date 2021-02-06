@@ -1,4 +1,4 @@
-import {makeAutoObservable} from "mobx";
+import { makeAutoObservable } from "mobx";
 
 class CityInputStore {
 
@@ -18,4 +18,6 @@ class CityInputStore {
   }
 }
 
-export default CityInputStore;
+const cityInputStore = new CityInputStore();
+
+export default cityInputStore;

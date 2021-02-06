@@ -1,10 +1,8 @@
 body {
-    /*background-color: #efefef;*/
-    background-color: #d1f4ff;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23adc1cc' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%239285aa' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23a6b5c6' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%238a80a4' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23a0a7bf' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23817b9d' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%239899b8' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23787597' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%239189b1' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%236d6f8f' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%238977aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23626988' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+    background-color: #ffe3d1;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23a6a39a' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23b1b8bc' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23a8a99e' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23b7bac0' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23a8afa3' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23bdbcc2' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23a7b6aa' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23c3bec3' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23a6bcb3' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23c7c1c3' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23a5c2be' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23cbc4c4' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
     background-attachment: fixed;
     background-size: cover;
-    background-position: center;
     /* background by SVGBackgrounds.com */
 }
 
@@ -18,7 +16,5 @@ body {
     width: 100%;
     margin: 0 auto;
     padding: 20px;
-    /*border-radius: 10px;
-    background-color: #fefefe;*/
     font-size: 24px;
 }

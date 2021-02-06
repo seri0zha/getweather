@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
-import GetWeatherImageId from "../../Common/WeatherImages/WeatherImages";
 import WeatherImage from "../WeatherImage/WeatherImage";
+import forecastDataStore from "../../MobX/ForecastDataStore";
+import Loader from "../../Common/Loader/Loader";
+import {observer} from "mobx-react-lite";
+import cityInputStore from "../../MobX/CityInputStore";
+import {convertForecastData} from "../../API/api";
 
 const InlineDiv = styled.div`
   display: inline-block;
@@ -29,36 +33,31 @@ const WeatherInfoWrapper = styled.div`
   color: #555;
 `;
 
+const WeatherInfo = observer((props: any) => {
 
-//function which ads '+' symbol to the temperature value if it's greater than zero
-const convertTemperature = (temperature: number): string => {
-  return Math.floor(temperature) > 0
-    ? '+' + Math.floor(temperature) : '' + Math.floor(temperature);
-};
+  if (Object.keys(forecastDataStore.forecastData).length === 0) {
+    //if forecast is not empty render data else render empty div
+    if (forecastDataStore.isFetching) return <Loader/>;
+    else return <></>;
+  }
 
-const WeatherInfo = (props: any) => {
-  const currentTemp: string = convertTemperature(props.forecastData.current.temp);
-  const feelsLike: string = convertTemperature(props.forecastData.current['feels_like']);
-  const date: Date = new Date(props.forecastData.current.dt * 1000);
-  const timeString: string = (date).toTimeString();
-  const weatherId: string = GetWeatherImageId(props.forecastData.current.weather[0].id);
-  const weatherDescription: string = props.forecastData.current.weather[0].main;
-  const imageURL: string = `http://openweathermap.org/img/wn/${weatherId}d@4x.png`
+  const forecastData = convertForecastData(forecastDataStore.forecastData);
+
   return (
     <WeatherInfoWrapper>
-      <div>{props.cityName}, {timeString.split(' ')[0].slice(0, 5)}</div>
+      <div>{cityInputStore.cityName}, {forecastData.timeString.split(' ')[0].slice(0, 5)}</div>
       <StyledDiv>
-        <WeatherImage imageURL={imageURL}/>
+        <WeatherImage imageURL={forecastData.imageURL}/>
         <Temperature>
-          {currentTemp}
+          {forecastData.currentTemp}
           <CelsiusDegree>&deg;C</CelsiusDegree>
         </Temperature>
       </StyledDiv>
       <div>
-        {weatherDescription}, feels like {feelsLike}&deg;C
+        {forecastData.weatherDescription}, feels like {forecastData.feelsLike}&deg;C
       </div>
     </WeatherInfoWrapper>
   )
-}
+});
 
 export default WeatherInfo;
